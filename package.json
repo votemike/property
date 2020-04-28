@@ -1,5 +1,5 @@
 {
-  "name": "property",
+  "name": "@votemike/property",
   "version": "0.0.1",
   "description": "Property class and related classes",
   "main": "index.js",
