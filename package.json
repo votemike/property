@@ -8,7 +8,7 @@
   "license": "GPL-3.0",
   "private": false,
   "scripts": {
-    "test": "console.log((new Property).name)"
+    "test": "node test.js"
   },
   "dependencies": {
     "dinero.js": "^1.8.1"
