@@ -1,4 +1,4 @@
-import { round } from '../../src/helpers';
+import {round} from '../../src/helpers';
 
 test('Rounding to 2DP', () => {
   expect(round(1)).toBe(1.00);
