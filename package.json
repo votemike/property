@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "yarn build && yarn test",
     "test": "jest"
   },
   "devDependencies": {
@@ -19,11 +20,7 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
     "babel-jest": "^25.5.0",
-    "dinero.js": "1.x",
     "jest": "^25.5.0",
     "typescript": "^3.8.3"
-  },
-  "peerDependencies": {
-    "dinero.js": "1.x"
   }
 }

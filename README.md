@@ -11,6 +11,7 @@ The property module and its related classes are for dealing with a property with
 Add multiple currency support
 Add name/label for fees, properties, finances
 Add tests to test TS typing
+Linting and all that jazz
 ### Finance
 * Teaser Rate
 * Teaser length/expiry
@@ -29,7 +30,6 @@ No guarantee
 
 
 
-To construct, pass these things through....
 
 Only publish index.ts and src to NPM...
 
