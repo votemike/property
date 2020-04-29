@@ -3,3 +3,4 @@ export {default as Finance} from './src/finance';
 export {default as Payment} from './src/payment';
 export {default as Property} from './src/property';
 export {default as Rental} from './src/rental';
+export {default as Sale} from './src/sale';
