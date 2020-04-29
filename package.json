@@ -2,20 +2,26 @@
   "name": "@votemike/property",
   "version": "0.0.1",
   "description": "Property class and related classes",
-  "main": "index.js",
+  "main": "dist/index.ts",
   "repository": "git@github.com:votemike/property.git",
   "author": "Michael Gwynne <michael@votemike.co.uk>",
   "license": "GPL-3.0",
   "private": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
     "babel-jest": "^25.5.0",
     "dinero.js": "1.x",
-    "jest": "^25.5.0"
+    "jest": "^25.5.0",
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "dinero.js": "1.x"

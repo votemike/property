@@ -1,7 +1,13 @@
 import {round} from './helpers';
+import Fee from "./fee";
 
 export default class Finance {
-  constructor(amount, repayment, length, rate, fees) {
+  amount: number;
+  repayment: boolean;
+  length: number;
+  rate: number;
+  fees: Fee[];
+  constructor(amount: number, repayment: boolean, length: number, rate: number, fees: Fee[]) {
     this.amount = amount;
     this.repayment = repayment;
     this.length = length;

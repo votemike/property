@@ -1,5 +1,6 @@
 export default class Fee {
-  constructor(amount) {
+  amount: number;
+  constructor(amount: number) {
     this.amount = amount;
   }
 }

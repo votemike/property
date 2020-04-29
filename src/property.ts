@@ -1,5 +1,10 @@
+import Finance from "./finance";
+import Payment from "./payment";
+
 export default class Property {
-  constructor(finances, payments) {
+  finances: Finance[];
+  payments: Payment[];
+  constructor(finances: Finance[], payments: Payment[]) {
     this.finances = finances;
     this.payments = payments;
   }

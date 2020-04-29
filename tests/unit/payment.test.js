@@ -1,11 +1,5 @@
 import Payment from '../../src/payment';
 
-test('An invalid interval throws an exception', () => {
-  expect(() => {
-    new Payment(200, 'foo');
-  }).toThrow();
-});
-
 test('Yearly cost of yearly payment', () => {
   const aPayment = new Payment(200, 'yearly');
   expect(aPayment.yearlyCost).toBe(200);

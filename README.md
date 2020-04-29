@@ -8,9 +8,9 @@ The property module and its related classes are for dealing with a property with
 * Only one currency is used throughout the classes
 * The currency has 100 sub-units
 ## TODO
-Convert to Typescript
 Add multiple currency support
 Add name/label for fees, properties, finances
+Add tests to test TS typing
 ### Finance
 * Teaser Rate
 * Teaser length/expiry
@@ -31,7 +31,7 @@ No guarantee
 
 To construct, pass these things through....
 
-Only publish index.js and src to NPM...
+Only publish index.ts and src to NPM...
 
 toJson method
 fromJson method

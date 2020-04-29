@@ -1,11 +1,10 @@
 import {round} from './helpers';
 
 export default class Payment {
-  constructor(amount, interval) {
+  amount: number;
+  interval: 'monthly'|'yearly';
+  constructor(amount: number, interval: 'monthly'|'yearly') {
     this.amount = amount;
-    if (!['monthly', 'yearly'].includes(interval)) {
-      throw new Error('interval must be one of \'monthly\' or \'yearly\'');
-    }
     this.interval = interval;
   }
 
