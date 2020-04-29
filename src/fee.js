@@ -1,6 +1,5 @@
 export default class Fee {
-  constructor(type, amount) {
-    this.type = type; //mortgage-arrangement;
+  constructor(amount) {
     this.amount = amount;
   }
 }

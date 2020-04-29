@@ -1,14 +1,7 @@
-import Dinero from 'dinero.js';
-
 export default class Property {
-  constructor(name, value, leasehold, leaseExpiry, finances, payments) {
-    this.name = 'mike';
-    this.value = new Dinero({ amount: 5000, currency: 'EUR' });
-    this.leasehold = true;
-    this.leaseExpiry = 2147483647;
+  constructor(finances, payments) {
     this.finances = finances;
     this.payments = payments;
-    //leaseExtensionCost
   }
 
   calculateMonthlyCost() {

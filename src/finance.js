@@ -1,15 +1,12 @@
 import {round} from './helpers';
 
 export default class Finance {
-  constructor(type, amount, repayment, length, rate, fees) {
-    this.type = type; //mortgage;
-    this.amount = amount; //": "the amount borrowed",
-    this.repayment = repayment; // bool
-    this.length = length; // years
-    this.rate = rate; //": "%/year",
-    // teaser rate
-    // teaser rate expiry/length
-    this.fees = fees; //": [
+  constructor(amount, repayment, length, rate, fees) {
+    this.amount = amount;
+    this.repayment = repayment;
+    this.length = length;
+    this.rate = rate;
+    this.fees = fees;
   }
 
   get totalCostOfFinance() {
