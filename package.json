@@ -1,8 +1,12 @@
 {
   "name": "@votemike/property",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Property class and related classes",
-  "keywords": ["property", "rent", "mortgage"],
+  "keywords": [
+    "property",
+    "rent",
+    "mortgage"
+  ],
   "main": "dist/index",
   "types": "dist/index.d",
   "repository": "git@github.com:votemike/property.git",
