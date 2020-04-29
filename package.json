@@ -2,9 +2,15 @@
   "name": "@votemike/property",
   "version": "0.0.1",
   "description": "Property class and related classes",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "git@github.com:votemike/property.git",
   "author": "Michael Gwynne <michael@votemike.co.uk>",
   "license": "GPL-3.0",
-  "private": false
+  "private": false,
+  "scripts": {
+    "test": "console.log((new Property).name)"
+  },
+  "dependencies": {
+    "dinero.js": "^1.8.1"
+  }
 }
