@@ -10,10 +10,10 @@ The property module and its related classes are for dealing with a property with
 * The currency has 100 sub-units
 
 ## TODO
-Add multiple currency support
-Add name/label for fees, properties, finances
-Add tests to test TS typing
-Linting and all that jazz
+* Add multiple currency support
+* Add name/label for fees, properties, finances
+* Add tests to test TS typing
+* Linting and all that jazz
 
 ### Finance
 * Teaser Rate
