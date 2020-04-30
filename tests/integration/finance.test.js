@@ -52,3 +52,8 @@ test('Monthly and yearly cost of finance for repayment mortgage for 35 years', (
   expect(finance.monthlyCostOfFinance).toBe(1514.06);
   expect(finance.yearlyCostOfFinance).toBe(18168.76);
 });
+
+test('Total one off costs', () => {
+  const finance = new Finance(300000, true, 1, 5, [new Fee(995), new Fee(500)]);
+  expect(finance.totalOneOffCosts).toBe(1495.00);
+});

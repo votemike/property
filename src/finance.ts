@@ -19,6 +19,10 @@ export default class Finance {
     return round(this.calculateTotalCostOfFinance());
   }
 
+  get totalOneOffCosts() {
+    return this.fees.reduce((total, fee) => fee.amount + total, 0);
+  }
+
   get monthlyCostOfFinance() {
     return round(this.calculateMonthlyCostOfFinance());
   }
