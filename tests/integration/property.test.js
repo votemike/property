@@ -1,6 +1,6 @@
-import Finance from "../../src/finance";
-import Payment from "../../src/payment";
-import Property from "../../src/property";
+import Finance from '../../src/finance';
+import Payment from '../../src/payment';
+import Property from '../../src/property';
 import Rental from '../../src/rental';
 
 test('Monthly cost of property', () => {

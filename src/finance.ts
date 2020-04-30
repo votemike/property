@@ -1,5 +1,5 @@
 import {round} from './helpers';
-import Fee from "./fee";
+import Fee from './fee';
 
 export default class Finance {
   amount: number;

@@ -1,6 +1,6 @@
-import Finance from "./finance";
-import Payment from "./payment";
-import Rental from "./rental";
+import Finance from './finance';
+import Payment from './payment';
+import Rental from './rental';
 
 export default class Property {
   finances: Finance[];

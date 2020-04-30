@@ -39,7 +39,6 @@ console.log(property.calculateMonthlyProfit()); // 416.53
 * Leasehold
 * Lease Expiry
 * Lease Extension Cost
-* Sale(s)
 * Refurbishment
 
 ## More
