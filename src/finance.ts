@@ -7,12 +7,14 @@ export default class Finance {
   length: number;
   rate: number;
   fees: Fee[];
-  constructor(amount: number, repayment: boolean, length: number, rate: number, fees: Fee[]) {
+  teaserRate: number | undefined;
+  constructor(amount: number, repayment: boolean, length: number, rate: number, fees: Fee[], teaserRate?: number) {
     this.amount = amount;
     this.repayment = repayment;
     this.length = length;
     this.rate = rate;
     this.fees = fees;
+    this.teaserRate = teaserRate;
   }
 
   get totalCostOfFinance() {
@@ -27,8 +29,16 @@ export default class Finance {
     return round(this.calculateMonthlyCostOfFinance());
   }
 
+  get monthlyTeaserCostOfFinance() {
+    return round(this.calculateMonthlyCostOfFinance(true));
+  }
+
   get yearlyCostOfFinance() {
     return round(this.calculateYearlyCostOfFinance());
+  }
+
+  get yearlyTeaserOfFinance() {
+    return round(this.calculateYearlyCostOfFinance(true));
   }
 
   calculateTotalCostOfFinance() {
@@ -40,12 +50,14 @@ export default class Finance {
     return this.amount + this.calculateYearlyCostOfFinance() * this.length + feeCosts;
   }
 
-  calculateYearlyCostOfFinance() {
-    return this.calculateMonthlyCostOfFinance() * 12;
+  calculateYearlyCostOfFinance(useTeaserRate: boolean = false) {
+    return this.calculateMonthlyCostOfFinance(useTeaserRate) * 12;
   }
 
-  calculateMonthlyCostOfFinance() {
-    const monthlyInterestRate = this.rate / 12 / 100;
+  calculateMonthlyCostOfFinance(useTeaserRate: boolean = false) {
+    const rate = (useTeaserRate && this.teaserRate !== undefined) ? this.teaserRate : this.rate; // If the teaser rate isn't defined, just use the main rate
+
+    const monthlyInterestRate = rate / 12 / 100;
 
     if (!this.repayment) {
       return this.amount * monthlyInterestRate;

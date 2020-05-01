@@ -22,7 +22,9 @@ test('Total cost of finance for interest only mortgage for 1 year and two fees',
 });
 
 test('Monthly and yearly cost of finance for interest only mortgage for 35 years', () => {
-  const finance = new Finance(300000, false, 35, 5, []);
+  const finance = new Finance(300000, false, 35, 5, [], 2);
+  expect(finance.monthlyTeaserCostOfFinance).toBe(500);
+  expect(finance.yearlyTeaserOfFinance).toBe(6000);
   expect(finance.monthlyCostOfFinance).toBe(1250.00);
   expect(finance.calculateYearlyCostOfFinance()).toBe(15000.00);
 });
@@ -48,9 +50,17 @@ test('Total cost of finance for repayment mortgage for 1 year and two fees', () 
 });
 
 test('Monthly and yearly cost of finance for repayment mortgage for 35 years', () => {
-  const finance = new Finance(300000, true, 35, 5, []);
+  const finance = new Finance(300000, true, 35, 5, [], 2);
+  expect(finance.monthlyTeaserCostOfFinance).toBe(993.79);
+  expect(finance.yearlyTeaserOfFinance).toBe(11925.46);
   expect(finance.monthlyCostOfFinance).toBe(1514.06);
   expect(finance.yearlyCostOfFinance).toBe(18168.76);
+});
+
+test('Teaser cost of finance when there is no teaser rate', () => {
+  const finance = new Finance(300000, true, 35, 5, []);
+  expect(finance.monthlyTeaserCostOfFinance).toBe(1514.06);
+  expect(finance.yearlyTeaserOfFinance).toBe(18168.76);
 });
 
 test('Total one off costs', () => {

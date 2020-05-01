@@ -3,7 +3,7 @@ import Payment from '../../src/payment';
 import Property from '../../src/property';
 import Rental from '../../src/rental';
 
-test('Monthly cost of property', () => {
+test('Monthly cost of property using main rate', () => {
   const finances = [
     new Finance(100000, true, 35, 2.99, []),
     new Finance(10000, false, 1, 8, [])
@@ -12,8 +12,21 @@ test('Monthly cost of property', () => {
     new Payment(35, 'monthly'),
     new Payment(199, 'yearly')
   ];
-  const property = new Property(finances, payments, []);
+  const property = new Property('The Property', finances, payments, []);
   expect(property.calculateMonthlyCost()).toBe(502.54);
+});
+
+test('Monthly cost of property using teaser rate', () => {
+  const finances = [
+    new Finance(100000, true, 35, 2.99, [], 1.59),
+    new Finance(10000, false, 1, 8, [])
+  ];
+  const payments = [
+    new Payment(35, 'monthly'),
+    new Payment(199, 'yearly')
+  ];
+  const property = new Property('The Property', finances, payments, []);
+  expect(property.calculateMonthlyCost(true)).toBe(428.86);
 });
 
 test('Monthly income of property', () => {
@@ -21,7 +34,7 @@ test('Monthly income of property', () => {
     new Rental(1000, 10),
     new Rental(950, 10)
   ];
-  const property = new Property([], [], rentals);
+  const property = new Property('The Property',[], [], rentals);
   expect(property.calculateMonthlyIncome()).toBe(1755.00);
 });
 
@@ -38,6 +51,6 @@ test('Monthly profit of property', () => {
     new Rental(1000, 10),
     new Rental(950, 10)
   ];
-  const property = new Property(finances, payments, rentals);
+  const property = new Property('The Property', finances, payments, rentals);
   expect(property.calculateMonthlyProfit()).toBe(1252.46);
 });

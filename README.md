@@ -30,11 +30,9 @@ console.log(property.calculateMonthlyProfit()); // 416.53
 * Linting and all that jazz
 
 ### Finance
-* Teaser Rate
-* Teaser length/expiry
+* Teaser length/expiry (get calculateTotalCostOfFinance() working with teaser rate)
 
 ### Property
-* Name
 * Value
 * Leasehold
 * Lease Expiry
