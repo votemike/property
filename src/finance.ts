@@ -1,7 +1,16 @@
 import {round} from './helpers';
-import Fee from './fee';
+import Fee, {FeeInterface} from './fee';
 
-export default class Finance {
+export interface FinanceInterface {
+  amount: number;
+  repayment: boolean;
+  length: number;
+  rate: number;
+  fees: FeeInterface[];
+  teaserRate: number | undefined;
+}
+
+export default class Finance implements FinanceInterface {
   amount: number;
   repayment: boolean;
   length: number;
@@ -68,5 +77,14 @@ export default class Finance {
     // M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
     const pow = Math.pow((monthlyInterestRate + 1), monthsLeft);
     return this.amount * ((monthlyInterestRate * pow) / (pow - 1));
+  }
+
+  static fromJson(json: FinanceInterface): Finance {
+    const finance = Object.create(Finance.prototype);
+    return Object.assign(finance, json, {
+      fees: json.fees.map((feeObject: FeeInterface) => {
+        return Fee.fromJson(feeObject);
+      })
+    });
   }
 }

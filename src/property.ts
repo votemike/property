@@ -1,8 +1,15 @@
-import Finance from './finance';
-import Payment from './payment';
-import Rental from './rental';
+import Finance, {FinanceInterface} from './finance';
+import Payment, {PaymentInterface} from './payment';
+import Rental, {RentalInterface} from './rental';
 
-export default class Property {
+interface PropertyInterface {
+  name: string;
+  finances: FinanceInterface[];
+  payments: PaymentInterface[];
+  rentals: RentalInterface[];
+}
+
+export default class Property implements PropertyInterface{
   name: string;
   finances: Finance[];
   payments: Payment[];
@@ -27,5 +34,24 @@ export default class Property {
 
   calculateMonthlyProfit(useTeaserRate: boolean = false) {
     return this.calculateMonthlyIncome() - this.calculateMonthlyCost(useTeaserRate);
+  }
+
+  static fromJson(json: PropertyInterface) {
+    const property = Object.create(Property.prototype);
+    return Object.assign(property, json, {
+      finances: json.finances.map((financeObject: FinanceInterface) => {
+        return Finance.fromJson(financeObject);
+      }),
+      payments: json.payments.map((paymentObject: PaymentInterface) => {
+        return Payment.fromJson(paymentObject);
+      }),
+      rentals: json.rentals.map((rentalObject: RentalInterface) => {
+        return Rental.fromJson(rentalObject);
+      })
+    });
+  }
+
+  static reviver(key: string, value: any): any {
+    return key === "" ? Property.fromJson(value) : value;
   }
 }

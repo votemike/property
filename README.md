@@ -5,7 +5,7 @@ The property module and its related classes are for dealing with a property with
 ### Installation
 `npm install @votemike/property` or `yarn add @votemike/property`
 
-### Example
+### Examples
 ```js
 const mortgageFee = new Fee(1495);
 const valuationFee = new Fee(195);
@@ -18,6 +18,7 @@ const property = new Property([mortgage, bridgingLoan], [insurance], [room1, roo
 
 console.log(property.calculateMonthlyProfit()); // 416.53
 ```
+If you have stringified the Property, you can reconstruct it with `JSON.parse(jsonString, Property.reviver)`.
 
 ## Assumptions
 * Only one currency is used throughout the classes
