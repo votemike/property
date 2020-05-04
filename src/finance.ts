@@ -35,37 +35,35 @@ export default class Finance implements FinanceInterface {
   }
 
   get monthlyCostOfFinance() {
-    return round(this.calculateMonthlyCostOfFinance());
+    return round(this.calculateMonthlyCostOfFinance(this.rate));
   }
 
   get monthlyTeaserCostOfFinance() {
-    return round(this.calculateMonthlyCostOfFinance(true));
+    return round(this.calculateMonthlyCostOfFinance(this.teaserRate ?? this.rate));
   }
 
   get yearlyCostOfFinance() {
-    return round(this.calculateYearlyCostOfFinance());
+    return round(this.calculateYearlyCostOfFinance(this.rate));
   }
 
   get yearlyTeaserOfFinance() {
-    return round(this.calculateYearlyCostOfFinance(true));
+    return round(this.calculateYearlyCostOfFinance(this.teaserRate ?? this.rate));
   }
 
   calculateTotalCostOfFinance() {
     const feeCosts = this.fees.reduce((total, fee) => fee.amount + total, 0);
     if (this.repayment) {
-      return this.calculateYearlyCostOfFinance() * this.length + feeCosts;
+      return this.calculateYearlyCostOfFinance(this.rate) * this.length + feeCosts;
     }
 
-    return this.amount + this.calculateYearlyCostOfFinance() * this.length + feeCosts;
+    return this.amount + this.calculateYearlyCostOfFinance(this.rate) * this.length + feeCosts;
   }
 
-  calculateYearlyCostOfFinance(useTeaserRate: boolean = false) {
-    return this.calculateMonthlyCostOfFinance(useTeaserRate) * 12;
+  calculateYearlyCostOfFinance(rate: number) {
+    return this.calculateMonthlyCostOfFinance(rate) * 12;
   }
 
-  calculateMonthlyCostOfFinance(useTeaserRate: boolean = false) {
-    const rate = (useTeaserRate && this.teaserRate !== undefined) ? this.teaserRate : this.rate; // If the teaser rate isn't defined, just use the main rate
-
+  calculateMonthlyCostOfFinance(rate: number) {
     const monthlyInterestRate = rate / 12 / 100;
 
     if (!this.repayment) {
